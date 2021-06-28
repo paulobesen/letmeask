@@ -110,3 +110,35 @@ main {
         margin-top: 32px;
     }
 }
+
+.modal {
+    width:500px !important;
+    height: 200px;
+    background: #fff;
+    border: 1px solid #835afd;
+    border-radius: 8px;
+    display:flex !important;
+    margin: auto;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #29292e;
+    margin-top: 20%;
+}
+
+.modal-content {
+    padding: 15px;
+    flex: 1;
+}
+
+.modal-menu {
+    padding: 12px;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    border-top: 1px solid #e2e2e2;
+
+    button {
+        height: 40px;
+    }
+}

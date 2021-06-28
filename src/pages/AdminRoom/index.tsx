@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Modal from "react-modal";
 import { useHistory, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
@@ -21,7 +21,7 @@ type RoomParams = {
 };
 
 export function AdminRoom() {
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
@@ -54,9 +54,7 @@ export function AdminRoom() {
   }
 
   async function handleDeleteQuestion(questionId: string | undefined) {
-    if (window.confirm("Tem certeza que você deseja excluir esta pergunta?")) {
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
-    }
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
 
     setQuestionIdModalOpen(undefined);
   }
@@ -116,7 +114,6 @@ export function AdminRoom() {
                   )}
                   <button
                     type="button"
-                    //onClick={() => handleDeleteQuestion(question.id)}
                     onClick={() => setQuestionIdModalOpen(question.id)}
                   >
                     <img src={deleteImg} alt="Remover pergunta" />
@@ -131,19 +128,23 @@ export function AdminRoom() {
       <Modal
         isOpen={questionIdModalOpen !== undefined}
         onRequestClose={() => setQuestionIdModalOpen(undefined)}
-        //className="modal"
-        //overlayClassName="modalOverlay"
+        className="modal"
       >
-        {questionIdModalOpen}
-        <button
-          type="button"
-          onClick={() => handleDeleteQuestion(questionIdModalOpen)}
-        >
-          Deletar
-        </button>
-        <button onClick={() => setQuestionIdModalOpen(undefined)}>
-          Fechar
-        </button>
+        <div className="modal-content">
+          Tem certeza que você deseja excluir esta pergunta?
+        </div>
+        <div className="modal-menu">
+          <Button
+            type="button"
+            isOutlined
+            onClick={() => handleDeleteQuestion(questionIdModalOpen)}
+          >
+            Deletar
+          </Button>
+          <Button onClick={() => setQuestionIdModalOpen(undefined)}>
+            Fechar
+          </Button>
+        </div>
       </Modal>
     </div>
   );

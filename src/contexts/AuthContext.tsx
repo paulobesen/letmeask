@@ -22,7 +22,6 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const history = useHistory();
-  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
@@ -39,8 +38,6 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           name: displayName,
           avatar: photoURL,
         });
-
-        setLoading(false);
       }
     });
 
@@ -73,10 +70,6 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     await auth.signOut();
     setUser(undefined);
     history.push("/");
-  }
-
-  if (loading) {
-      return <p>Carregando...</p>
   }
 
   return (

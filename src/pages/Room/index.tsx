@@ -39,12 +39,6 @@ export function Room() {
         })
     }, [roomId])*/
 
-  useEffect(() => {
-    if (!user) {
-      history.push("/");
-    }
-  }, [history, user]);
-
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
 
