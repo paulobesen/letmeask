@@ -2,16 +2,15 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '../components/Button';
-import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
+import { Button } from '../../components/Button';
+import { useAuth } from '../../hooks/useAuth';
+import { database } from '../../services/firebase';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
+import googleIconImg from '../../assets/images/google-icon.svg';
 
-import '../styles/auth.scss'
-import { useTheme } from '../hooks/useTheme';
+import "./styles.scss";
 
 type FormFields = {
     roomCode: string;
@@ -23,7 +22,6 @@ const schemaValidation = Yup.object().shape({
 
 export function Home() {
     const history = useHistory();
-    const { theme, toggleTheme } = useTheme();
     const { user, signInWithGoogle } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaValidation)
@@ -54,7 +52,7 @@ export function Home() {
     }
 
     return (
-        <div id="page-auth" className={theme}>
+        <div id="page-auth">
             <aside>
                 <img src={illustrationImg} alt="Ilustração troca de perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -62,8 +60,6 @@ export function Home() {
             </aside>
             <main>
                 <div className="main-content">
-                    <h1>{theme}</h1>
-                    <button onClick={toggleTheme}>Toggle</button>
                     <img src={logoImg} alt="LetMeAsk" />
                     <button className="create-room" onClick={handleCreateRoom}>
                         <img src={googleIconImg} alt="Logo do Google" />
