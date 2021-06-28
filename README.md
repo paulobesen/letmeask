@@ -27,7 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O LetMeAsk permite que usuário faça login com o gmail e crie uma sala para perguntas em live, seus espectadores podem por meio de um código, acessar essa sala para fazerem perguntas. Nessa sala, os espectadores podem criar perguntas e também votar em perguntas, onde o administrador poderá também gerir essas perguntas, detacando-a, anotando como respondida ou deletando a mesma.
 
-## 🔖 Layout
+## 🔖 Demo
 
 Você pode visualizar uma demonstração do projeto através [desse link](https://letmeask-9b839.web.app/).
 
