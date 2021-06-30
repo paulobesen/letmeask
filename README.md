@@ -7,6 +7,7 @@
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-demo">Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-próximos-ajustes">Próximos ajustes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">Licença</a>
 </p>
 
@@ -34,10 +35,27 @@ Você pode visualizar uma demonstração do projeto através [desse link](https:
 ## 🚀 Como executar
 
 - Clone o repositório
+- Crie o arquivo .env.local na raiz do projeto (este arquivo terá informações de acesso ao firebase)
 - Instale as dependências com `yarn`
 - Inicie o servidor com `yarn start`
 
+Exemplo de .env.local:
+```sh
+REACT_APP_API_KEY="xxxxxxx"
+REACT_APP_AUTH_DOMAIN="xxxxxxx"
+REACT_APP_DATABASE_URL="xxxxxxx"
+REACT_APP_PROJECT_ID="xxxxxxx"
+REACT_APP_STORAGE_BUCKET="xxxxxxx"
+REACT_APP_MESSAGING_SENDER_ID="xxxxxxx"
+REACT_APP_APP_ID="xxxxxxx"
+```
+
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
+
+## ❗❗ Próximos ajustes
+
+- CSS na página de login e criação de salas
+- Tema dark
 
 ## 📄 Licença
 
